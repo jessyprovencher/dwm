@@ -64,6 +64,7 @@ static const char *brdowncmd[] = { "sudo", "xbacklight", "-dec", "10", NULL };
 static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *escrotumcmd[] = { "escrotum", "-Cs", NULL, NULL, NULL, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -94,6 +95,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = escrotumcmd} },
 	{ 0,				XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
 	{ 0, 				XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
 	{ 0, 				XF86XK_AudioMute, spawn, {.v = mutecmd } },
